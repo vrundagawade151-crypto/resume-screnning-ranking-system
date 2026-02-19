@@ -15,9 +15,11 @@ if(resumeForm){
 
         let data = await res.json();
 
-        document.getElementById("msg").innerText = data.msg;
+        // Make sure HTML has <p id="msg"></p>
+        document.getElementById("msg").innerText = data.msg || data.error;
     });
 }
+
 
 
 // Job Upload
@@ -37,6 +39,8 @@ if(jobForm){
 
         let data = await res.json();
 
-        document.getElementById("msg").innerText = data.msg;
+        // Fix ID case
+        document.getElementById("jobMsg").innerText = data.msg || data.error;
     });
 }
+
